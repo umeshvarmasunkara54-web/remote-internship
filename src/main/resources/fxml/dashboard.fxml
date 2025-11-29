@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.intern.ui.controllers.DashboardController" stylesheets="/css/style.css">
+    <top>
+        <HBox spacing="12" styleClass="topbar" padding="10">
+            <Label text="Remote Internship Management" styleClass="title" />
+            <HBox spacing="8" style="-fx-padding:0 0 0 20;">
+                <Button text="Dashboard" onAction="#onShowDashboard" />
+                <Button text="Students" onAction="#onShowStudents" />
+                <Button text="Mentors" onAction="#onShowMentors" />
+                <Button text="Tasks" onAction="#onManageTasks" />
+                <Button text="Evaluations" onAction="#onShowEvaluations" />
+            </HBox>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="12" padding="20">
+            <Label text="Internships" styleClass="section-title" />
+            <ListView fx:id="internshipListView" prefHeight="400" />
+        </VBox>
+    </center>
+    <bottom>
+        <HBox spacing="10" padding="12" styleClass="bottombar">
+            <Button fx:id="addInternshipBtn" text="Add Internship" onAction="#onAddInternship" />
+            <Button fx:id="manageTasksBtn" text="Manage Tasks" onAction="#onManageTasks" />
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,49 @@
+/* Simple light theme */
+root {
+    -fx-font-family: "Segoe UI", Roboto, Arial;
+}
+
+.topbar {
+    -fx-background-color: #f5f7fb;
+    -fx-alignment: center-left;
+}
+
+.title {
+    -fx-font-size: 20px;
+    -fx-text-fill: #2b2b2b;
+    -fx-font-weight: bold;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: #1f2937;
+}
+
+.bottombar {
+    -fx-padding: 12;
+    -fx-background-color: transparent;
+}
+
+Button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-padding: 8 14 8 14;
+    -fx-background-radius: 6;
+}
+
+Button:hover {
+    -fx-opacity: 0.9;
+}
+
+ListView {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #e5e7eb;
+}
+
+TextField {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #e5e7eb;
+    -fx-padding: 6 8 6 8;
+}

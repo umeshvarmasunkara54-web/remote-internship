@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.intern.ui.controllers.TaskController" stylesheets="/css/style.css">
+    <children>
+        <VBox spacing="12" layoutX="40" layoutY="20">
+            <Label text="Tasks" styleClass="section-title" />
+            <HBox spacing="8">
+                <TextField fx:id="taskField" promptText="New task" />
+                <Button fx:id="addTaskBtn" text="Add" onAction="#onAddTask" />
+                <Button fx:id="deleteTaskBtn" text="Delete Selected" onAction="#onDeleteSelected" />
+            </HBox>
+            <ListView fx:id="taskListView" prefHeight="420" />
+            <HBox>
+                <Button fx:id="backBtn" text="Back" onAction="#onBack" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>
