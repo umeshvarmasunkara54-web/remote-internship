@@ -36,36 +36,38 @@ public class TaskController {
         ObservableList<Task> tasks = DataStore.tasks;
         taskListView.setItems(tasks);
 
-        taskListView.setCellFactory(lv -> new javafx.scene.control.ListCell<>() {
-            private final javafx.scene.control.CheckBox check = new javafx.scene.control.CheckBox();
-            private final javafx.scene.text.Text txt = new javafx.scene.text.Text();
-            private final javafx.scene.layout.HBox box = new javafx.scene.layout.HBox(8, check, txt);
+        taskListView.setCellFactory(lv -> new TaskCell());
+    }
 
-            {
-                box.setStyle("-fx-alignment: CENTER_LEFT;");
-            }
+    private static class TaskCell extends ListCell<Task> {
+        private final javafx.scene.control.CheckBox check = new javafx.scene.control.CheckBox();
+        private final javafx.scene.text.Text txt = new javafx.scene.text.Text();
+        private final javafx.scene.layout.HBox box = new javafx.scene.layout.HBox(8, check, txt);
 
-            @Override
-            protected void updateItem(Task item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty || item == null) {
-                    setGraphic(null);
-                } else {
-                    check.setSelected(item.isCompleted());
-                    txt.setText(item.getDescription());
+        TaskCell() {
+            box.setStyle("-fx-alignment: CENTER_LEFT;");
+        }
+
+        @Override
+        protected void updateItem(Task item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+                setGraphic(null);
+            } else {
+                check.setSelected(item.isCompleted());
+                txt.setText(item.getDescription());
+                txt.setStrikethrough(item.isCompleted());
+                check.setOnAction(e -> {
+                    item.setCompleted(check.isSelected());
                     txt.setStrikethrough(item.isCompleted());
-                    check.setOnAction(e -> {
-                        item.setCompleted(check.isSelected());
-                        txt.setStrikethrough(item.isCompleted());
-                    });
-                    setGraphic(box);
-                }
+                });
+                setGraphic(box);
             }
-        });
+        }
     }
 
     @FXML
-    private void onAddTask() {
+    public void onAddTask() {
         String text = taskField.getText().trim();
         if (!text.isEmpty()) {
             Task t = new Task(text);
@@ -75,7 +77,7 @@ public class TaskController {
     }
 
     @FXML
-    private void onDeleteSelected() {
+    public void onDeleteSelected() {
         Task sel = taskListView.getSelectionModel().getSelectedItem();
         if (sel != null) {
             DataStore.tasks.remove(sel);
@@ -83,10 +85,12 @@ public class TaskController {
     }
 
     @FXML
-    private void onBack() throws IOException {
-        Parent dashboard = FXMLLoader.load(getClass().getResource("/fxml/dashboard.fxml"));
+    public void onBack() throws IOException {
+        Parent dashboard = FXMLLoader.load(TaskController.class.getResource("/fxml/dashboard.fxml"));
         if (rootPane == null || rootPane.getScene() == null) return;
-        Stage stage = (Stage) rootPane.getScene().getWindow();
+        javafx.stage.Window w = rootPane.getScene().getWindow();
+        if (!(w instanceof Stage)) return;
+        Stage stage = (Stage) w;
         if (stage == null || stage.getScene() == null) return;
         stage.getScene().setRoot(dashboard);
     }

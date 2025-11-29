@@ -31,43 +31,37 @@ public class DashboardController {
     }
 
     @FXML
-    @SuppressWarnings("unused")
-    private void onAddInternship() throws IOException {
+    public void onAddInternship() throws IOException {
         Parent form = FXMLLoader.load(DashboardController.class.getResource("/fxml/internship.fxml"));
         swapScene(form);
     }
 
     @FXML
-    @SuppressWarnings("unused")
-    private void onManageTasks() throws IOException {
+    public void onManageTasks() throws IOException {
         Parent tasks = FXMLLoader.load(DashboardController.class.getResource("/fxml/task.fxml"));
         swapScene(tasks);
     }
 
     @FXML
-    @SuppressWarnings("unused")
-    private void onShowStudents() throws IOException {
+    public void onShowStudents() throws IOException {
         Parent students = FXMLLoader.load(DashboardController.class.getResource("/fxml/students.fxml"));
         swapScene(students);
     }
 
     @FXML
-    @SuppressWarnings("unused")
-    private void onShowMentors() throws IOException {
+    public void onShowMentors() throws IOException {
         Parent mentors = FXMLLoader.load(DashboardController.class.getResource("/fxml/mentors.fxml"));
         swapScene(mentors);
     }
 
     @FXML
-    @SuppressWarnings("unused")
-    private void onShowEvaluations() throws IOException {
+    public void onShowEvaluations() throws IOException {
         Parent eval = FXMLLoader.load(DashboardController.class.getResource("/fxml/evaluation.fxml"));
         swapScene(eval);
     }
 
     @FXML
-    @SuppressWarnings("unused")
-    private void onShowDashboard() throws IOException {
+    public void onShowDashboard() throws IOException {
         Parent dashboard = FXMLLoader.load(DashboardController.class.getResource("/fxml/dashboard.fxml"));
         swapScene(dashboard);
     }

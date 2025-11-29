@@ -32,7 +32,7 @@ public class EvaluationController {
     }
 
     @FXML
-    private void onSaveEvaluation() {
+    public void onSaveEvaluation() {
         Internship selected = internshipCombo.getSelectionModel().getSelectedItem();
         if (selected == null) return;
         int score = 0;
@@ -45,8 +45,7 @@ public class EvaluationController {
     }
 
     @FXML
-    @SuppressWarnings("unused")
-    private void onBack() throws IOException {
+    public void onBack() throws IOException {
         Parent dashboard = FXMLLoader.load(EvaluationController.class.getResource("/fxml/dashboard.fxml"));
         if (rootPane == null || rootPane.getScene() == null) return;
         javafx.stage.Window w = rootPane.getScene().getWindow();

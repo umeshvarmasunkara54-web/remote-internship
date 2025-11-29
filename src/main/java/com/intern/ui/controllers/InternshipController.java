@@ -32,7 +32,7 @@ public class InternshipController {
     private Button backBtn;
 
     @FXML
-    private void onSave() throws IOException {
+    public void onSave() throws IOException {
         String title = titleField.getText().trim();
         String mentor = mentorField.getText().trim();
         String duration = durationField.getText().trim();
@@ -44,8 +44,7 @@ public class InternshipController {
     }
 
     @FXML
-    @SuppressWarnings("unused")
-    private void onBack() throws IOException {
+    public void onBack() throws IOException {
         goBack();
     }
 

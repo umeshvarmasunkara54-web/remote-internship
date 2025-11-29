@@ -36,8 +36,7 @@ public class MentorController {
     }
 
     @FXML
-    @SuppressWarnings("unused")
-    private void onBack() throws IOException {
+    public void onBack() throws IOException {
         Parent dashboard = FXMLLoader.load(MentorController.class.getResource("/fxml/dashboard.fxml"));
         if (rootPane == null || rootPane.getScene() == null) return;
         javafx.stage.Window w = rootPane.getScene().getWindow();
