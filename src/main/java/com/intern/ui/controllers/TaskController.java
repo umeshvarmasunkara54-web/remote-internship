@@ -91,7 +91,7 @@ public class TaskController {
         javafx.stage.Window w = rootPane.getScene().getWindow();
         if (!(w instanceof Stage)) return;
         Stage stage = (Stage) w;
-        if (stage == null || stage.getScene() == null) return;
+        if (stage.getScene() == null) return;
         stage.getScene().setRoot(dashboard);
     }
 }
