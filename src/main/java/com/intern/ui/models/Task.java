@@ -1,17 +1,19 @@
 package com.intern.ui.models;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 public class Task {
-    private static long counter = 1;
+    private static final AtomicLong COUNTER = new AtomicLong(0);
     private final long id;
     private String description;
     private boolean completed;
 
     public Task() {
-        this.id = counter++;
+        this.id = COUNTER.incrementAndGet();
     }
 
     public Task(String description) {
-        this.id = counter++;
+        this.id = COUNTER.incrementAndGet();
         this.description = description;
         this.completed = false;
     }

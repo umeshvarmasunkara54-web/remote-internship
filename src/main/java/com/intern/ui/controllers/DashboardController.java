@@ -31,45 +31,53 @@ public class DashboardController {
     }
 
     @FXML
+    @SuppressWarnings("unused")
     private void onAddInternship() throws IOException {
-        Parent form = FXMLLoader.load(getClass().getResource("/fxml/internship.fxml"));
+        Parent form = FXMLLoader.load(DashboardController.class.getResource("/fxml/internship.fxml"));
         swapScene(form);
     }
 
     @FXML
+    @SuppressWarnings("unused")
     private void onManageTasks() throws IOException {
-        Parent tasks = FXMLLoader.load(getClass().getResource("/fxml/task.fxml"));
+        Parent tasks = FXMLLoader.load(DashboardController.class.getResource("/fxml/task.fxml"));
         swapScene(tasks);
     }
 
     @FXML
+    @SuppressWarnings("unused")
     private void onShowStudents() throws IOException {
-        Parent students = FXMLLoader.load(getClass().getResource("/fxml/students.fxml"));
+        Parent students = FXMLLoader.load(DashboardController.class.getResource("/fxml/students.fxml"));
         swapScene(students);
     }
 
     @FXML
+    @SuppressWarnings("unused")
     private void onShowMentors() throws IOException {
-        Parent mentors = FXMLLoader.load(getClass().getResource("/fxml/mentors.fxml"));
+        Parent mentors = FXMLLoader.load(DashboardController.class.getResource("/fxml/mentors.fxml"));
         swapScene(mentors);
     }
 
     @FXML
+    @SuppressWarnings("unused")
     private void onShowEvaluations() throws IOException {
-        Parent eval = FXMLLoader.load(getClass().getResource("/fxml/evaluation.fxml"));
+        Parent eval = FXMLLoader.load(DashboardController.class.getResource("/fxml/evaluation.fxml"));
         swapScene(eval);
     }
 
     @FXML
+    @SuppressWarnings("unused")
     private void onShowDashboard() throws IOException {
-        Parent dashboard = FXMLLoader.load(getClass().getResource("/fxml/dashboard.fxml"));
+        Parent dashboard = FXMLLoader.load(DashboardController.class.getResource("/fxml/dashboard.fxml"));
         swapScene(dashboard);
     }
 
     private void swapScene(Parent newRoot) {
         if (rootPane == null || rootPane.getScene() == null) return;
-        Stage stage = (Stage) rootPane.getScene().getWindow();
-        if (stage == null || stage.getScene() == null) return;
+        javafx.stage.Window w = rootPane.getScene().getWindow();
+        if (!(w instanceof Stage)) return;
+        Stage stage = (Stage) w;
+        if (stage.getScene() == null) return;
         stage.getScene().setRoot(newRoot);
     }
 }

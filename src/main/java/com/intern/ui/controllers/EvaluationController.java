@@ -45,11 +45,14 @@ public class EvaluationController {
     }
 
     @FXML
+    @SuppressWarnings("unused")
     private void onBack() throws IOException {
-        Parent dashboard = FXMLLoader.load(getClass().getResource("/fxml/dashboard.fxml"));
+        Parent dashboard = FXMLLoader.load(EvaluationController.class.getResource("/fxml/dashboard.fxml"));
         if (rootPane == null || rootPane.getScene() == null) return;
-        Stage stage = (Stage) rootPane.getScene().getWindow();
-        if (stage == null || stage.getScene() == null) return;
+        javafx.stage.Window w = rootPane.getScene().getWindow();
+        if (!(w instanceof Stage)) return;
+        Stage stage = (Stage) w;
+        if (stage.getScene() == null) return;
         stage.getScene().setRoot(dashboard);
     }
 }

@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/dashboard.fxml"));
+        FXMLLoader fxml = new FXMLLoader(Main.class.getResource("/fxml/dashboard.fxml"));
         Scene scene = new Scene(fxml.load());
-        scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+        scene.getStylesheets().add(Main.class.getResource("/css/style.css").toExternalForm());
         stage.setTitle("Remote Internship Platform");
         stage.setScene(scene);
         stage.setWidth(1000);

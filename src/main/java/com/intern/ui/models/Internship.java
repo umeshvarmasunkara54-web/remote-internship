@@ -1,18 +1,20 @@
 package com.intern.ui.models;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 public class Internship {
-    private static long counter = 1;
+    private static final AtomicLong COUNTER = new AtomicLong(0);
     private final long id;
     private String title;
     private String mentor;
     private String duration;
 
     public Internship() {
-        this.id = counter++;
+        this.id = COUNTER.incrementAndGet();
     }
 
     public Internship(String title, String mentor, String duration) {
-        this.id = counter++;
+        this.id = COUNTER.incrementAndGet();
         this.title = title;
         this.mentor = mentor;
         this.duration = duration;

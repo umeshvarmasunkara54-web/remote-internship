@@ -46,6 +46,45 @@
                     <mainClass>com.intern.ui.Main</mainClass>
                 </configuration>
             </plugin>
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>4.7.3.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>spotbugs</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <failOnError>false</failOnError>
+                        <effort>Max</effort>
+                        <threshold>Low</threshold>
+                    </configuration>
+                </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>spotbugs-compat</id>
+            <activation>
+                <property>
+                    <name>spotbugs.compat</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <release>17</release>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
