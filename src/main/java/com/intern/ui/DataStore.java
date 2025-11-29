@@ -34,7 +34,9 @@ public class DataStore {
         tasks.add(new Task("Setup project repo"));
         tasks.add(new Task("Implement login screen"));
 
-        // evaluations (sample)
-        evaluations.add(new Evaluation(internships.get(0).getId(), 8, "Good progress"));
+        // evaluations (sample) - add only if internships list was populated
+        if (!internships.isEmpty()) {
+            evaluations.add(new Evaluation(internships.get(0).getId(), 8, "Good progress"));
+        }
     }
 }

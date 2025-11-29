@@ -50,7 +50,9 @@ public class InternshipController {
 
     private void goBack() throws IOException {
         Parent dashboard = FXMLLoader.load(getClass().getResource("/fxml/dashboard.fxml"));
+        if (rootPane == null || rootPane.getScene() == null) return;
         Stage stage = (Stage) rootPane.getScene().getWindow();
+        if (stage == null || stage.getScene() == null) return;
         stage.getScene().setRoot(dashboard);
     }
 }

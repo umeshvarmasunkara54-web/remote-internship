@@ -67,7 +67,9 @@ public class DashboardController {
     }
 
     private void swapScene(Parent newRoot) {
+        if (rootPane == null || rootPane.getScene() == null) return;
         Stage stage = (Stage) rootPane.getScene().getWindow();
+        if (stage == null || stage.getScene() == null) return;
         stage.getScene().setRoot(newRoot);
     }
 }
